@@ -1,0 +1,6 @@
+src/js/**/test/**/*.spec.js
+--recursive
+
+--require test/setup.js
+
+--compilers js:babel-register,jpg:./test/compiler.js
