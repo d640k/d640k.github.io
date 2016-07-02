@@ -4,7 +4,12 @@
   "description": "The official Dave Krstin web experience.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --content-base public/ --history-api-fallback --config webpack.dev.config.js",
+    "test": "babel-node ./node_modules/.bin/isparta cover _mocha",
+    "test:no_coverage": "mocha",
+    "test:watch": "npm run test:no_coverage -- --watch",
+    "build:prod": "webpack --progress -p --config webpack.prod.config.js",
+    "lint": "eslint src"
   },
   "author": "Dave Krstin (http://davekrstin.com)",
   "license": "UNLICENSED",
@@ -19,6 +24,12 @@
     "redux": "^3.5.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-register": "^6.9.0",
     "chai": "^3.5.0",
     "chai-immutable": "^1.6.0",
     "dirty-chai": "^1.2.2",
