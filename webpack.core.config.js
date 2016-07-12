@@ -1,3 +1,7 @@
+'use strict';
+
+// require.extensions['.md'] = () => { return; };
+
 module.exports = {
 	entry: './src/js/index.js',
 	resolve: {
@@ -45,7 +49,13 @@ module.exports = {
 			{
 				test: /\.(png|jpg)$/,
 				loader: 'url-loader?limit=8192'
+			},
+			{
+				test:   /\.md/,
+				loader: 'html!remarkable'
 			}
 		]
 	}
 };
+
+// { test: /\.md$/, loader: "html!markdown" }
